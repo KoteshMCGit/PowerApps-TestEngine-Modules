@@ -1,0 +1,3 @@
+[submodule "PowerApps-TestEngine"]
+	path = PowerApps-TestEngine
+	url = https://github.com/Grant-Archibald-MS/PowerApps-TestEngine
