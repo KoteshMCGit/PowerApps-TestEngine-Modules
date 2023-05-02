@@ -44,10 +44,20 @@ dotnet run -- -i ..\..\..\samples\pause\testPlan.fx.yaml -e 12345678-1234-1234-1
 
 Using the Creator Kit canvas application
 
-
 ```pwsh
 $env:user1Email = "test@contoto.com"
 $env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
 cd PowerApps-TestEngine\src\PowerAppsTestEngine
 dotnet run -- -i ..\..\..\samples\creatorkit\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
+```
+
+### Networking
+
+Using the [Automation Kit](https://aka.ms/AutomationCOE) Automation Project application from the Automation COE Main solution.
+
+```pwsh
+$env:user1Email = "test@contoto.com"
+$env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
+cd PowerApps-TestEngine\src\PowerAppsTestEngine
+dotnet run -- -i ..\..\..\samples\automationkit\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
 ```

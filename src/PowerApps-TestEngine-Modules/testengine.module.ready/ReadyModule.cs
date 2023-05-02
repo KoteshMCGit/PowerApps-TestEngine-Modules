@@ -14,16 +14,16 @@ using Microsoft.Playwright;
 namespace testengine.module
 {
     [Export(typeof(ITestEngineModule))]
-    public class PauseModule : ITestEngineModule
+    public class ReadyModule : ITestEngineModule
     {
         public void RegisterPowerFxFunction(PowerFxConfig config, ITestInfraFunctions testInfraFunctions, IPowerAppFunctions powerAppFunctions, ISingleTestInstanceState singleTestInstanceState, ITestState testState, IFileSystem fileSystem)
         {
             ILogger logger = singleTestInstanceState.GetLogger();
-            config.AddFunction(new PauseFunction(testInfraFunctions, testState, logger));
-            logger.LogInformation("Registered Pause()");
+            config.AddFunction(new ReadyFunction(powerAppFunctions, testState, singleTestInstanceState, logger));
+            logger.LogInformation("Registered Ready()");
         }
 
-        public async Task RegisterNetworkRoute(ITestState state, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)
+        public async Task RegisterNetworkRoute(ITestState testState, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)
         {
             await Task.CompletedTask;
         }

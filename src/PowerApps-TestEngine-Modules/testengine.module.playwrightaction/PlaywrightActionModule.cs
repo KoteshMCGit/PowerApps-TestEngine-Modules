@@ -24,7 +24,7 @@ namespace testengine.module
             logger.LogInformation("Registered PlaywrightAction()");
         }
 
-        public async Task RegisterNetworkRoute(ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)
+        public async Task RegisterNetworkRoute(ITestState state, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)
         {
             await Task.CompletedTask;
         }
