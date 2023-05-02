@@ -1,0 +1,28 @@
+testSuite:
+  testSuiteName: Reference Application
+  testSuiteDescription: testPlan template for written own test steps
+  persona: User1
+  appLogicalName: cat_creatorkitcontrolreferenceapp_d66f8
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Creator Kit Canvas App Reference Application
+      testCaseDescription: PCF Integration Test - Command Bar
+      testSteps: |
+        = PlaywrightActionValue("button:has-text('Commands, Menus & Navs')","click-in-iframe","");
+          PlaywrightActionValue("button:has-text('CommandBar')","click-in-iframe","");
+          Pause();
+
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  enableExtensionModules: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

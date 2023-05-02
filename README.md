@@ -39,3 +39,15 @@ $env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
 cd PowerApps-TestEngine\src\PowerAppsTestEngine
 dotnet run -- -i ..\..\..\samples\pause\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
 ```
+
+### PCF Control
+
+Using the Creator Kit canvas application
+
+
+```pwsh
+$env:user1Email = "test@contoto.com"
+$env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
+cd PowerApps-TestEngine\src\PowerAppsTestEngine
+dotnet run -- -i ..\..\..\samples\creatorkit\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
+```
