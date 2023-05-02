@@ -14,7 +14,7 @@ git clone --recurse-submodules https://github.com/Grant-Archibald-MS/PowerApps-T
 
 ```pwsh
 cd PowerApps-TestEngine-Modules\PowerApps-TestEngine
-git checkout testengine-plugins
+git checkout testengine-plugin
 cd ..
 ```
 
