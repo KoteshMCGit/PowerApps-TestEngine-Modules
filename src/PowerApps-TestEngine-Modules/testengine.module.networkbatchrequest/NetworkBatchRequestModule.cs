@@ -18,6 +18,11 @@ namespace testengine.module
     [Export(typeof(ITestEngineModule))]
     public class NetworkBatchRequestModule : ITestEngineModule
     {
+        public void ExtendBrowserContextOptions(BrowserNewContextOptions options, TestSettings settings)
+        {
+
+        }
+
         public void RegisterPowerFxFunction(PowerFxConfig config, ITestInfraFunctions testInfraFunctions, IPowerAppFunctions powerAppFunctions, ISingleTestInstanceState singleTestInstanceState, ITestState testState, IFileSystem fileSystem)
         {
         }

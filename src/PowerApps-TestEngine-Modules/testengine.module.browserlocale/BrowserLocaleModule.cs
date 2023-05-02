@@ -10,25 +10,27 @@ using Microsoft.PowerApps.TestEngine.PowerApps;
 using Microsoft.PowerApps.TestEngine.System;
 using Microsoft.PowerApps.TestEngine.TestInfra;
 using Microsoft.Playwright;
+using System;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace testengine.module
 {
     [Export(typeof(ITestEngineModule))]
-    public class ReloadModule : ITestEngineModule
+    public class BrowserLocaleModule : ITestEngineModule
     {
         public void ExtendBrowserContextOptions(BrowserNewContextOptions options, TestSettings settings)
         {
-
+            if ( settings != null && settings.ExtensionModuleParameters != null && settings.ExtensionModuleParameters.ContainsKey("browserLocale") ) {
+                options.Locale = settings.ExtensionModuleParameters["browserLocale"];
+            }
         }
 
         public void RegisterPowerFxFunction(PowerFxConfig config, ITestInfraFunctions testInfraFunctions, IPowerAppFunctions powerAppFunctions, ISingleTestInstanceState singleTestInstanceState, ITestState testState, IFileSystem fileSystem)
         {
-            ILogger logger = singleTestInstanceState.GetLogger();
-            config.AddFunction(new ReloadFunction(testInfraFunctions, testState, logger));
-            logger.LogInformation("Registered Reload()");
         }
 
-        public async Task RegisterNetworkRoute(ITestState state, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)
+        public async Task RegisterNetworkRoute(ITestState testState, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage page, NetworkRequestMock mock)
         {
             await Task.CompletedTask;
         }

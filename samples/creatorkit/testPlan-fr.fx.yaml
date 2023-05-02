@@ -12,14 +12,16 @@ testSuite:
         = PlaywrightActionValue("button:has-text('Commands')","click-in-iframe","");
           PlaywrightActionValue("button:has-text('CommandBar')","click-in-iframe","");
           Pause();
-
+        
 testSettings:
   headless: false
   locale: "en-US"
   recordVideo: true
   enableExtensionModules: true
+  extensionModuleParameters:
+    browserLocale: "fr-FR"
   browserConfigurations:
-    - browser: Chromium
+    - browser: Firefox
 
 environmentVariables:
   users:
