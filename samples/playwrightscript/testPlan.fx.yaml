@@ -9,7 +9,9 @@ testSuite:
     - testCaseName: Run Script
       testCaseDescription: CSX example
       testSteps: |
-        = PlaywrightScript("sample.csx");
+        = Pause();
+          PlaywrightScript("sample.csx");
+          Pause();
 
 testSettings:
   headless: false

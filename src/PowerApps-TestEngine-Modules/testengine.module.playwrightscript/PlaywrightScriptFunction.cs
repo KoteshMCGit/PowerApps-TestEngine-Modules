@@ -17,7 +17,7 @@ using System.Reflection;
 namespace testengine.module
 {
     /// <summary>
-    /// This will pause the current test and allow the user to interact with the browser and inspect state when headless mode is false
+    /// This will execute CSharp Script (CSX) file passing IBrowserContext and ILogger
     /// </summary>
     public class PlaywrightScriptFunction : ReflectionFunction
     {
@@ -102,21 +102,28 @@ namespace testengine.module
             //Execute the script
             var types = assembly.GetTypes();
 
+            bool found = false;
             foreach ( var scriptType in types )
             {
                 if ( scriptType.Name.Equals("PlaywrightScript") )
                 {
+                    found = true;
+
                     var method = scriptType.GetMethod("Run", BindingFlags.Static | BindingFlags.Public);
 
                     var context = _testInfraFunctions.GetContext();
 
                     if (method == null)
                     {
-                        _logger.LogError("Run Method not found");
+                        _logger.LogError("Static Run Method not found");
                     }
 
                     method?.Invoke(null, new object[] { context, _logger });
                 }
+            }
+
+            if ( !found ) {
+                 _logger.LogError("PlaywrightScript class not found");
             }
         }
     }
