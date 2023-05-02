@@ -7,17 +7,18 @@ Sample Extensions modules for the Power Apps Test Engine that extend custom Powe
 1. Clone the repository
 
 ```pwsh
-git clone --recurse-submodules git://github.com/Grant-Archibald-MS/PowerApps-TestEngine-Modules.git
+git clone --recurse-submodules https://github.com/Grant-Archibald-MS/PowerApps-TestEngine-Modules.git
 ```
 
-1. Enable the Module support. This is currently in a git branch (testengine-modules)
+1. Enable the Module support. This is currently in a git branch (testengine-plugins)
 
 ```pwsh
-cd PowerApps-TestEngin-Modules\PowerApps-TestEngine
-git checkout testengine-modules
+cd PowerApps-TestEngine-Modules\PowerApps-TestEngine
+git checkout testengine-plugins
+cd ..
 ```
 
-1. Build the solutions
+1. From the main folder cloned open new prompt and build the solutions
 
 ```pwsh
 cd src\PowerApps-TestEngine-Modules
@@ -30,7 +31,7 @@ Get the values for your environment and tenant id from the [Power Apps Portal](h
 
 ### Pause
 
-From the main folder of the cloned repository. To run this sample the button clicker solution must be loaded into the environment you waht to test.
+From the main folder of the cloned repository. To run this sample the button clicker solution must be loaded into the environment you want to test.
 
 ```pwsh
 $env:user1Email = "test@contoto.com"
