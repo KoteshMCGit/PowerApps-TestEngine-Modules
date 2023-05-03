@@ -44,13 +44,24 @@ namespace testengine.module
             }
 
             var url = mock.RequestURL;
+
+            if (String.IsNullOrEmpty(url))
+            {
+                return;
+            }
+
+            if ( url.StartsWith("http://") )
+            {
+                singleTestInstanceState.GetLogger().LogError("http:// requests not supported use https://");
+                return;
+            }
+
             if (!String.IsNullOrEmpty(url) && !url.StartsWith("http"))
             {
                 url = "**" + url;
             }
 
             await page.RouteAsync(url, async route => await RouteNetworkRequest(route, testState, fileSystem, singleTestInstanceState, mock));
-
         }
 
         public async Task RouteNetworkRequest(IRoute route, ITestState testState, IFileSystem fileSystem, ISingleTestInstanceState singleTestInstanceState, NetworkRequestMock mock)

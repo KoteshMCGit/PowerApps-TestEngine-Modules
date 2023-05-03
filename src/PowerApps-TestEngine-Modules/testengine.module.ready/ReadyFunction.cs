@@ -38,7 +38,7 @@ namespace testengine.module
 
             _powerAppFunctions.CheckAndHandleIfLegacyPlayerAsync().Wait();
 
-            PollingHelper.PollAsync<bool>(false, (x) => !x, () => _powerAppFunctions.CheckIfAppIsIdleAsync(), _testState.GetTestSettings().Timeout, _singleTestInstanceState.GetLogger(), "Something went wrong when Test Engine tried to get App status.").Wait();
+            PollingHelper.PollAsync<bool>(false, (x) => !x, () => _powerAppFunctions.CheckIfAppIsIdleAsync(), _testState.GetTestSettings().Timeout, _logger, "Something went wrong when Test Engine tried to get App status.").Wait();
 
             _logger.LogInformation("Successfully finished executing Ready function.");
 

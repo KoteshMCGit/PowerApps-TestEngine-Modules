@@ -33,12 +33,6 @@ namespace testengine.module
             _logger.LogInformation("------------------------------\n\n" +
                 "Executing Playwright Action function.");
 
-            switch (locator.Value.ToLower())
-            {
-                case "sleep":
-                    Thread.Sleep(int.Parse(action.Value));
-                    return BooleanValue.New(true);
-            }
 
             if (string.IsNullOrEmpty(locator.Value))
             {

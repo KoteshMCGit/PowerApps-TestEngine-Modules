@@ -14,7 +14,7 @@ using Microsoft.Playwright;
 namespace testengine.module
 {
     [Export(typeof(ITestEngineModule))]
-    public class PlaywrightScriptModule : ITestEngineModule
+    public class SleepModule : ITestEngineModule
     {
         public void ExtendBrowserContextOptions(BrowserNewContextOptions options, TestSettings settings)
         {
@@ -24,8 +24,8 @@ namespace testengine.module
         public void RegisterPowerFxFunction(PowerFxConfig config, ITestInfraFunctions testInfraFunctions, IPowerAppFunctions powerAppFunctions, ISingleTestInstanceState singleTestInstanceState, ITestState testState, IFileSystem fileSystem)
         {
             ILogger logger = singleTestInstanceState.GetLogger();
-            config.AddFunction(new PlaywrightScriptFunction(testInfraFunctions, testState, fileSystem, logger));
-            logger.LogInformation("Registered PlaywrightScript()");
+            config.AddFunction(new SleepFunction(logger));
+            logger.LogInformation("Registered Sleep()");
         }
 
         public async Task RegisterNetworkRoute(ITestState state, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)

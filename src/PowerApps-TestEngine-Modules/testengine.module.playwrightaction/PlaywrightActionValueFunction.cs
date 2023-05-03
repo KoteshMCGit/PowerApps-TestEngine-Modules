@@ -53,7 +53,7 @@ namespace testengine.module
                     {
                         if (frame.Locator(locator.Value).IsVisibleAsync().Result)
                         {
-                            frame.Locator(locator.Value).ClickAsync().Wait();
+                            frame.Locator(locator.Value).ClickAsync(new LocatorClickOptions {  Delay = 200 }).Wait();
                         }
                     }
                     break;
@@ -61,8 +61,8 @@ namespace testengine.module
                     foreach (var frame in page.Frames)
                     {
                         if (frame.Locator(locator.Value).IsVisibleAsync().Result)
-                        {
-                            frame.Locator(locator.Value).FillAsync(value.Value).Wait();
+                        { 
+                            frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions { Delay = 100 }).Wait();
                         }
                     }
                     break;

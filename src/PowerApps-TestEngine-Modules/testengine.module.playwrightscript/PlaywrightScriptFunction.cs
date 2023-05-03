@@ -82,17 +82,17 @@ namespace testengine.module
             _logger.LogDebug("Run script");
             Run(assembly);
 
+            _logger.LogInformation("Successfully finished executing PlaywrightScript function.");
+
             return FormulaValue.NewBlank();
         }
 
         private string GetFullFile(ITestState testState, string filename)
         {
-            var testResultDirectory = Path.GetDirectoryName(testState.GetTestConfigFile().FullName);
             if (!Path.IsPathRooted(filename))
             {
+                var testResultDirectory = Path.GetDirectoryName(testState.GetTestConfigFile().FullName);
                 filename = Path.Combine(testResultDirectory, filename);
-
-
             }
             return filename;
         }

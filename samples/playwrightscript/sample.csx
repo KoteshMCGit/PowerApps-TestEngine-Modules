@@ -1,4 +1,3 @@
-
 #r "Microsoft.Playwright.dll"
 #r "Microsoft.Extensions.Logging.dll"
 using Microsoft.Playwright;
