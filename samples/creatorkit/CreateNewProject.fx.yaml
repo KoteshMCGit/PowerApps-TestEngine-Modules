@@ -1,0 +1,64 @@
+testSuite:
+  testSuiteName: Reference Application
+  testSuiteDescription: testPlan template for written own test steps
+  persona: User1
+  appId: 86f0c1aa-e10c-4a6e-a226-974b46cb1f3a
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Creator Kit Canvas App Reference Application
+      testCaseDescription: PCF Integration Test - Command Bar
+      testSteps: |
+        = PlaywrightActionValue("button:has-text('Add Project')","click-in-iframe","");          
+          PlaywrightActionValue("//input[@placeholder='Name of project']","fill-in-iframe","Sample Project for Automation");          
+          PlaywrightActionValue("//textarea[@placeholder='Explain Project description']","fill-in-iframe","Test description for Automation Project ");
+          PlaywrightActionValue("//textarea[@placeholder='Explain main challenges in process']","fill-in-iframe","Autmation Project for Cost saving and Quality Improvement");
+          PlaywrightActionValue("//span[text()='Select a Department']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Accounting']","click-in-iframe","");
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Primary Improvement Driver')]","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Quality Improvement']","click-in-iframe","");
+          PlaywrightActionValue("//input[@placeholder='Total processing time in minutes']","fill-in-iframe","60");
+          PlaywrightActionValue("//span[text()='Select Cateogory']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Artificial Intelligence']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Select sub category based on category ']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Return']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Frequency of process']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Daily']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Total processing time in minutes']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='daily']","click-in-iframe","");          
+          PlaywrightActionValue("//input[@placeholder='The volume per process based on frequency']","fill-in-iframe","100");
+          PlaywrightActionValue("//input[@role='combobox' and @placeholder='Search Business Owner...']","fill-in-iframe","Nathanr@powercattools.onmicrosoft.com");  
+          PlaywrightActionValue("//span[text()='Next >']","click-in-iframe","");
+          PlaywrightActionValue("//input[@placeholder='Average # of automation steps ']","fill-in-iframe","4");
+          PlaywrightActionValue("//input[@placeholder='# of FTEs needed for process']","fill-in-iframe","2");
+          PlaywrightActionValue("//input[@placeholder='Average rework time if failed. In minutes']","fill-in-iframe","20");
+          PlaywrightActionValue("//input[@placeholder='Average error rate of automation']","fill-in-iframe","5");
+          PlaywrightActionValue("//input[@placeholder='Average hourly cost of FTE']","fill-in-iframe","50");
+          PlaywrightActionValue("//input[@placeholder='# of days worked per year']","fill-in-iframe","255");
+          PlaywrightActionValue("//input[@placeholder='# of working hours per day']","fill-in-iframe","8");
+          PlaywrightActionValue("//input[@placeholder='# of FTEs for review/rework']","fill-in-iframe","1");
+          PlaywrightActionValue("//span[text()='Select goal for this project']","click-in-iframe","");
+          PlaywrightActionValue("//span[text()='Cost Savings through Automation']","click-in-iframe","");
+          PlaywrightActionValue("//input[@placeholder='Estimated overhead maintenance %']","fill-in-iframe","10");
+          PlaywrightActionValue("//input[@placeholder='Estimated devlopment cost']","fill-in-iframe","5000");
+          PlaywrightActionValue("//span[text()='Save']","click-in-iframe","");
+          PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","");                   
+          PlaywrightActionValue("button:has-text('Approved')","click-in-iframe","");          
+          PlaywrightActionValue("button:has-text('Declined')","click-in-iframe","");
+          PlaywrightActionValue("button:has-text('All Projects')","click-in-iframe","");
+          PlaywrightActionValue("button:has-text('Submitted')","click-in-iframe","");
+          PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","");           
+          
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  enableExtensionModules: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

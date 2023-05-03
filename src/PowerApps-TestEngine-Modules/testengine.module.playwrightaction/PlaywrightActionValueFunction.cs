@@ -53,16 +53,21 @@ namespace testengine.module
                     {
                         if (frame.Locator(locator.Value).IsVisibleAsync().Result)
                         {
-                            frame.Locator(locator.Value).ClickAsync().Wait();
+                            frame.Locator(locator.Value).ClickAsync(new LocatorClickOptions { Delay=200}).Wait();
                         }
                     }
+                    
                     break;
                 case "fill-in-iframe":
                     foreach (var frame in page.Frames)
                     {
                         if (frame.Locator(locator.Value).IsVisibleAsync().Result)
                         {
-                            frame.Locator(locator.Value).FillAsync(value.Value).Wait();
+
+                            //frame.Locator(locator.Value).PressAsync("Shift+A", new LocatorPressOptions { Delay = 200 });
+                            //frame.Locator(locator.Value).InputValueAsync().Wait();  
+                            frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions {Delay=100 }).Wait();
+                            frame.Locator(locator.Value).PressAsync("Tab", new LocatorPressOptions { Delay = 100 });
                         }
                     }
                     break;
