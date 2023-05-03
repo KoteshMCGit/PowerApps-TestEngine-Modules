@@ -14,7 +14,7 @@ git clone --recurse-submodules https://github.com/Grant-Archibald-MS/PowerApps-T
 
 ```pwsh
 cd PowerApps-TestEngine-Modules\PowerApps-TestEngine
-git checkout testengine-plugins
+git checkout testengine-plugin
 cd ..
 ```
 
@@ -60,4 +60,15 @@ $env:user1Email = "test@contoto.com"
 $env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
 cd PowerApps-TestEngine\src\PowerAppsTestEngine
 dotnet run -- -i ..\..\..\samples\automationkit\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
+```
+
+### Playwright CSX Extension
+
+Ensure that  the Microsoft.CodeAnalysis.*.dll are in the PowerAppsTestEngine folder to compile the csx file
+
+```pwsh
+$env:user1Email = "test@contoto.com"
+$env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
+cd PowerApps-TestEngine\src\PowerAppsTestEngine
+dotnet run -- -i ..\..\..\samples\playwrightscript\testPlan.fx.yaml -e 12345678-1234-1234-1234-1234567890ab -t 11111111-2222-3333-4444-555555555555
 ```

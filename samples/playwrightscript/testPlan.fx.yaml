@@ -1,0 +1,28 @@
+testSuite:
+  testSuiteName: testPlan Template
+  testSuiteDescription: Playwright csx example
+  persona: User1
+  appLogicalName: new_buttonclicker_0a877
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Run Script
+      testCaseDescription: CSX example
+      testSteps: |
+        = Pause();
+          PlaywrightScript("sample.csx");
+          Pause();
+
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  enableExtensionModules: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password
