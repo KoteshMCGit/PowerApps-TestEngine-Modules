@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         dotnet-version: [ '6.0.x' ]
@@ -20,18 +20,18 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
         run: |
-          cd src/PowerApps-TestEngine-Modules
+          cd src\PowerApps-TestEngine-Modules
           dotnet restore
       - name: Build
         run: |
-          cd src/PowerApps-TestEngine-Modules
+          cd src\PowerApps-TestEngine-Modules
           dotnet build --configuration Release --no-restore
       - name: Install Playwright
         shell: pwsh
         run: |
-          cd PowerApps-TestEngine/bin/Debug/PowerAppsTestEngine
-          & ./playwright.ps1 install
+          cd PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
+          & .\playwright.ps1 install
       - name: Test
         run: |
-          cd src/PowerApps-TestEngine-Modules
+          cd src\PowerApps-TestEngine-Modules
           dotnet test --no-restore --verbosity normal
