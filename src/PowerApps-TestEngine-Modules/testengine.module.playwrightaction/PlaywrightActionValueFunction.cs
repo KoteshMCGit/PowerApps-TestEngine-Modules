@@ -36,7 +36,7 @@ namespace testengine.module
         public BooleanValue Execute(StringValue locator, StringValue action, StringValue value)
         {
             _logger.LogInformation("------------------------------\n\n" +
-                "Executing Playwright Action function.");
+                "Executing PlaywrightActionValue function.");
 
             if (string.IsNullOrEmpty(locator.Value))
             {
@@ -110,7 +110,7 @@ namespace testengine.module
                     throw new ArgumentException();
             }
 
-            _logger.LogInformation("Successfully finished executing Playwright Action function.");
+            _logger.LogInformation("Successfully finished executing PlaywrightActionValue function.");
 
             return BooleanValue.New(true);
         }

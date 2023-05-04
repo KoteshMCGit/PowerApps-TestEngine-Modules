@@ -25,8 +25,10 @@ namespace testengine.module
         {
             ILogger logger = singleTestInstanceState.GetLogger();
             config.AddFunction(new PlaywrightActionFunction(testInfraFunctions, testState, logger));
-            config.AddFunction(new PlaywrightActionValueFunction(testInfraFunctions, singleTestInstanceState, fileSystem, testState, logger));
             logger.LogInformation("Registered PlaywrightAction()");
+            config.AddFunction(new PlaywrightActionValueFunction(testInfraFunctions, singleTestInstanceState, fileSystem, testState, logger));
+            logger.LogInformation("Registered PlaywrightActionValue()");
+
         }
 
         public async Task RegisterNetworkRoute(ITestState state, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, IPage Page, NetworkRequestMock mock)

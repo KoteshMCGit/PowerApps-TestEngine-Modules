@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testengine.module.sleep.tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testengine.module.playwrightscript.tests", "testengine.module.playwrightscript.tests\testengine.module.playwrightscript.tests.csproj", "{52A94EAC-911F-4993-806D-1A79D9FA5BCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testengine.module.playwrightaction.tests", "testengine.module.playwrightaction.tests\testengine.module.playwrightaction.tests.csproj", "{97F33CC1-B1EC-4C47-8872-492E0FF809A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testengine.module.tests.common", "testengine.module.tests.common\testengine.module.tests.common.csproj", "{B7EC9DFB-E081-4572-A26D-56A8C38EA209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{52A94EAC-911F-4993-806D-1A79D9FA5BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52A94EAC-911F-4993-806D-1A79D9FA5BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52A94EAC-911F-4993-806D-1A79D9FA5BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97F33CC1-B1EC-4C47-8872-492E0FF809A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F33CC1-B1EC-4C47-8872-492E0FF809A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F33CC1-B1EC-4C47-8872-492E0FF809A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F33CC1-B1EC-4C47-8872-492E0FF809A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EC9DFB-E081-4572-A26D-56A8C38EA209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EC9DFB-E081-4572-A26D-56A8C38EA209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EC9DFB-E081-4572-A26D-56A8C38EA209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EC9DFB-E081-4572-A26D-56A8C38EA209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

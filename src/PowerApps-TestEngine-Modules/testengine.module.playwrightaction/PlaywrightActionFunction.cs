@@ -31,7 +31,7 @@ namespace testengine.module
         public BooleanValue Execute(StringValue locator, StringValue action)
         {
             _logger.LogInformation("------------------------------\n\n" +
-                "Executing Playwright Action function.");
+                "Executing PlaywrightAction function.");
 
 
             if (string.IsNullOrEmpty(locator.Value))
@@ -60,13 +60,15 @@ namespace testengine.module
                 case "exists":
                     _logger.LogInformation("Check if locator exists");
                     var result = page.Locator(locator.Value).CountAsync().Result > 0;
+                    var existsMessage = $"Exists {result}";
+                    _logger.LogInformation(existsMessage);
                     return BooleanValue.New(result);
                 default:
                     _logger.LogError("Action not found " + action.Value);
                     throw new ArgumentException();
             }
 
-            _logger.LogInformation("Successfully finished executing Playwright Action function.");
+            _logger.LogInformation("Successfully finished executing PlaywrightAction function.");
 
             return BooleanValue.New(true);
         }
