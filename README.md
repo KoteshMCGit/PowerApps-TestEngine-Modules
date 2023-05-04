@@ -1,6 +1,6 @@
 # PowerApps TestEngine Modules
 
-Sample Extensions modules for the Power Apps Test Engine that extend custom Power Fx and Networking Requests.
+This repository is an experimental project that demonstrates sample Extensions modules for the Power Apps Test Engine that can be used to extend via custom Power Fx and Networking Requests.
 
 ## Getting Started
 
@@ -10,32 +10,24 @@ Sample Extensions modules for the Power Apps Test Engine that extend custom Powe
 git clone --recurse-submodules https://github.com/Grant-Archibald-MS/PowerApps-TestEngine-Modules.git
 ```
 
-2. Enable the Module support. This is currently in a git branch (testengine-plugins)
-
-```pwsh
-cd PowerApps-TestEngine-Modules\PowerApps-TestEngine
-git checkout testengine-plugin
-cd ..
-```
-
-3. From the main folder cloned open new prompt and build the solutions
+2. From the main folder you cloned the repository run the following commands to build the solutions
 
 ```pwsh
 cd src\PowerApps-TestEngine-Modules
 dotnet build
 ```
 
-4. Install Playwright Install
+3. From the folder you clone the repository install Playwright Install using the following commands
 
 ```pwsh
 cd PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
 & .\playwright.ps1 install
 ```
 
-5. Before running any sample ensure login credentials and in PowerAppsTestEngine from inside the PowerApps-TestEngine-Modules folder
+4. Before running any sample ensure login credentials and in PowerAppsTestEngine from inside the PowerApps-TestEngine-Modules folder
 
 ```pwsh
-$env:user1Email = "test@contoto.com"
+$env:user1Email = "test@contoso.com"
 $env:user1Password = "XXXXXXXXXXXXXXXXXXXXXXX"
 cd PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
 ```
