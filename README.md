@@ -28,7 +28,7 @@ dotnet build
 4. Install Playwright Install
 
 ```pwsh
-cd PowerApps-TestEngine-Modules\PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
+cd PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
 & .\playwright.ps1 install
 ```
 
