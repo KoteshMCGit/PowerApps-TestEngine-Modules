@@ -12,6 +12,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Use Extension Plugin
+        shell: pwsh
+        run: |
+          cd PowerApps-TestEngine-Modules/PowerApps-TestEngine
+          git checkout testengine-plugin
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
@@ -24,6 +31,11 @@ jobs:
         run: |
           cd src/PowerApps-TestEngine-Modules
           dotnet build --configuration Release --no-restore
+      - name: Install Playwright
+        shell: pwsh
+        run: |
+          cd PowerApps-TestEngine-Modules/PowerApps-TestEngine/bin/Debug/PowerAppsTestEngine
+          & ./playwright.ps1 install
       - name: Test
         run: |
           cd src/PowerApps-TestEngine-Modules

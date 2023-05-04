@@ -18,18 +18,18 @@ git checkout testengine-plugin
 cd ..
 ```
 
-3. Install Playwright Install
-
-```pwsh
-cd PowerApps-TestEngine-Modules\PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
-& .\playwright.ps1 install
-```
-
-4. From the main folder cloned open new prompt and build the solutions
+3. From the main folder cloned open new prompt and build the solutions
 
 ```pwsh
 cd src\PowerApps-TestEngine-Modules
 dotnet build
+```
+
+4. Install Playwright Install
+
+```pwsh
+cd PowerApps-TestEngine-Modules\PowerApps-TestEngine\bin\Debug\PowerAppsTestEngine
+& .\playwright.ps1 install
 ```
 
 5. Before running any sample ensure login credentials and in PowerAppsTestEngine from inside the PowerApps-TestEngine-Modules folder
