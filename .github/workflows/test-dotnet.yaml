@@ -34,4 +34,4 @@ jobs:
       - name: Test
         run: |
           cd src\PowerApps-TestEngine-Modules
-          dotnet test --no-restore --verbosity normal
+          dotnet test --configuration Release --no-restore --verbosity normal
