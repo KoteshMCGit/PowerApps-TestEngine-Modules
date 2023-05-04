@@ -14,12 +14,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - name: Use Extension Plugin
-        shell: pwsh
-        run: |
-          cd PowerApps-TestEngine
-          git pull
-          git checkout testengine-plugin
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
