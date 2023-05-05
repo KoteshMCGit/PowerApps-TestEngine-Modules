@@ -66,7 +66,7 @@ namespace testengine.module.browserlocale.tests
 
             if (expectRegistration)
             {
-                MockPage.Setup(x => x.RouteAsync(It.IsAny<string>(), It.IsAny<Action<IRoute>>(), null)).Returns(Task.CompletedTask);
+                MockPage.Setup(x => x.RouteAsync(It.IsAny<string>(), It.IsAny<Func<IRoute, Task>>(), null)).Returns(Task.CompletedTask);
             }
 
             if ( string.IsNullOrEmpty(property) )
@@ -88,7 +88,7 @@ namespace testengine.module.browserlocale.tests
             // Assert
             if ( expectRegistration )
             {
-                MockPage.Verify(v => v.RouteAsync(expectedUrl, It.IsAny<Action<IRoute>>(), null), Times.Once());
+                MockPage.Verify(v => v.RouteAsync(expectedUrl, It.IsAny<Func<IRoute, Task>>(), null), Times.Once());
             }
         }
     }
