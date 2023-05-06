@@ -19,8 +19,8 @@ testSettings:
   recordVideo: true
   extensionModules:
     enable: true
-  extensionModuleParameters:
-    browserLocale: "fr-FR"
+    parameters:
+      browserLocale: "fr-FR"
   browserConfigurations:
     - browser: Firefox
 
