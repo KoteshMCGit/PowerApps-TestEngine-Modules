@@ -15,7 +15,8 @@ testSettings:
   headless: false
   locale: "en-US"
   recordVideo: true
-  enableExtensionModules: true
+  extensionModules:
+    enable: true
   browserConfigurations:
     - browser: Chromium
 

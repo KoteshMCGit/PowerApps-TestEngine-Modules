@@ -21,8 +21,8 @@ namespace testengine.module
     {
         public void ExtendBrowserContextOptions(BrowserNewContextOptions options, TestSettings settings)
         {
-            if ( settings != null && settings.ExtensionModuleParameters != null && settings.ExtensionModuleParameters.ContainsKey("browserLocale") ) {
-                options.Locale = settings.ExtensionModuleParameters["browserLocale"];
+            if ( settings != null && settings.ExtensionModules != null && settings.ExtensionModules.Parameters != null && settings.ExtensionModules.Parameters.ContainsKey("browserLocale") ) {
+                options.Locale = settings.ExtensionModules.Parameters["browserLocale"];
             }
         }
 

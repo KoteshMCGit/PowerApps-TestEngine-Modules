@@ -7,7 +7,7 @@ testSuite:
 
   testCases:
     - testCaseName: Run Script
-      testCaseDescription: CSX example
+      testCaseDescription: Sleep sample
       testSteps: |
         = Sleep(1000);
 
@@ -15,7 +15,8 @@ testSettings:
   headless: false
   locale: "en-US"
   recordVideo: true
-  enableExtensionModules: true
+  extensionModules:
+    enable: true
   browserConfigurations:
     - browser: Chromium
 

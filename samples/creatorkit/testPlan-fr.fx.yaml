@@ -17,7 +17,8 @@ testSettings:
   headless: false
   locale: "en-US"
   recordVideo: true
-  enableExtensionModules: true
+  extensionModules:
+    enable: true
   extensionModuleParameters:
     browserLocale: "fr-FR"
   browserConfigurations:

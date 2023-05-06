@@ -40,7 +40,7 @@ namespace testengine.module.browserlocale.tests
             // Arrange
             var module = new BrowserLocaleModule();
             var options = new BrowserNewContextOptions();
-            var settings = new TestSettings() { ExtensionModuleParameters = new Dictionary<string, string> { { parameter, parameterValue } } };
+            var settings = new TestSettings() { ExtensionModules = new TestSettingExtensions() { Parameters = new Dictionary<string, string> { { parameter, parameterValue } } } };
 
             // Act
             module.ExtendBrowserContextOptions(options, settings);

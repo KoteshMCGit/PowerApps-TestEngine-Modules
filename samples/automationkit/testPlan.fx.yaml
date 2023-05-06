@@ -32,7 +32,8 @@ testSettings:
   locale: "en-US"
   recordVideo: true
   timeout: 60000
-  enableExtensionModules: true
+  extensionModules:
+    enable: true
   browserConfigurations:
     - browser: Firefox
 
