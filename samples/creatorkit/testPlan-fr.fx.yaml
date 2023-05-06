@@ -14,7 +14,7 @@ testSuite:
           Pause();
         
 testSettings:
-  headless: false
+  headless: true
   locale: "en-US"
   recordVideo: true
   extensionModules:
@@ -22,7 +22,7 @@ testSettings:
     parameters:
       browserLocale: "fr-FR"
   browserConfigurations:
-    - browser: Firefox
+    - browser: Chromium
 
 environmentVariables:
   users:
