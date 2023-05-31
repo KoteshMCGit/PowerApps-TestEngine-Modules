@@ -110,7 +110,7 @@ namespace testengine.module.browserlocale.tests
             RunTestScenario(string.IsNullOrEmpty(scenario) ? action : scenario);
 
             // Act
-            function.Execute(StringValue.New(locator),StringValue.New(action), StringValue.New(value));
+            function.Execute(StringValue.New(locator),StringValue.New(action), StringValue.New(value),NumberValue.New( 0));
 
             // Assert
             MockLogger.VerifyMessage(LogLevel.Information, "------------------------------\n\n" +

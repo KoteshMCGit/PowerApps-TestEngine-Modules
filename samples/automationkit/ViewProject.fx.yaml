@@ -1,0 +1,36 @@
+testSuite:
+  testSuiteName: Automation Project Application
+  testSuiteDescription: Test suite to View Automation Project record details
+  persona: User1
+  appId: e2a726a0-d593-45ce-8e87-98f528847024
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");  
+  testCases:
+    - testCaseName: View Automation Project record
+      testCaseDescription: Search and click on link for exisitng Automation project to View the details      
+      testSteps: |
+        = PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","Sample Project for Automation",0);
+        Sleep(3000);
+        PlaywrightActionValue("button:has-text('All Projects')","click-in-iframe","",0);
+        PlaywrightActionValue("//div[@role='radio']","click-in-iframe","",0);        
+        PlaywrightActionValue("button:has-text('Sample Project for Automation')","click-in-iframe","",0);    
+        Sleep(3000);
+        PlaywrightActionValue("//span[text()='View ROI >']","click-in-iframe","",0);
+        Sleep(3000);
+        PlaywrightActionValue("//span[text()='< View Project']","click-in-iframe","",0);
+        Sleep(3000);
+        PlaywrightActionValue("//div[@aria-label='close button']","click-in-iframe","",0);
+        Sleep(3000);
+        
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  extensionModules:
+    enable: true
+  browserConfigurations:
+    - browser: Chromium
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

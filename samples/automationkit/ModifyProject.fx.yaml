@@ -1,0 +1,90 @@
+testSuite:
+  testSuiteName: Automation Project Application
+  testSuiteDescription: Test suite to Modify Automation Project 
+  persona: User1
+  appId: e2a726a0-d593-45ce-8e87-98f528847024
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Modify Automation Project
+      testCaseDescription: Search and take exisitng saved Automation project to Modify
+      testSteps: |
+        = PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","Modified Project Name",0);
+          Sleep(1000);          
+          PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","",0);
+          Sleep(1000);   
+          PlaywrightActionValue("//div[@role='radio']","click-in-iframe","",0);
+          Sleep(1000);   
+          PlaywrightActionValue("button:has-text('Edit Project')","click-in-iframe","",0);   
+          Sleep(1000);             
+          PlaywrightActionValue("//input[@placeholder='Name of project']","fill-in-iframe","Modified Project Name",0);
+          PlaywrightActionValue("//textarea[@placeholder='Explain Project description']","fill-in-iframe","Modified Test description for Project",0);                
+          PlaywrightActionValue("//textarea[@placeholder='Enter Project Information URL']","fill-in-iframe","Https://www.google1.com",0);
+          PlaywrightActionValue("//textarea[@placeholder='Explain main challenges in process']","fill-in-iframe","Modified challenge for automation project",0);
+          PlaywrightActionValue("//span[text()='Select a Department']","click-in-iframe","",0);
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Accounting']","click-in-iframe","",0);
+          Sleep(1000);           
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Primary Improvement Driver')]","click-in-iframe","",0);
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Quality Improvement']","click-in-iframe","",0);
+          Sleep(1000); 
+          PlaywrightActionValue("//input[@placeholder='Total processing time in minutes']","fill-in-iframe","60",0);
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Process Category')]","click-in-iframe","",0); 
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Artificial Intelligence']","click-in-iframe","",0);
+          Sleep(1000); 
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Process Sub Category')]","click-in-iframe","",0);
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0); 
+          PlaywrightActionValue("//span[text()='Return']","click-in-iframe","",0);
+          Sleep(1000); 
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'When does this process run? Daily')]","click-in-iframe","",0); 
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Daily']","click-in-iframe","",0);
+          Sleep(1000); 
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Does the process have a peak in the processes')]","click-in-iframe","",0); 
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);  
+          PlaywrightActionValue("//span[text()='hourly']","click-in-iframe","",0);    
+          Sleep(1000);           
+          PlaywrightActionValue("//input[@placeholder='The volume per process based on frequency']","fill-in-iframe","100",0);        
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);   
+          Sleep(1000);
+          PlaywrightActionValue("//input[@role='combobox' and @placeholder='Search Business Owner...']","fill-in-iframe","Nathanr@powercattools.onmicrosoft.com",400);  
+          PlaywrightActionValue("//input[@role='combobox' and @placeholder='Search Business Owner...']","press","Tab",0); 
+          Sleep(2000);             
+          PlaywrightActionValue("//span[text()='Next >']","click-in-iframe","",0);        
+          PlaywrightActionValue("//input[@placeholder='Average # of automation steps ']","fill-in-iframe","99",0);
+          PlaywrightActionValue("//input[@placeholder='# of FTEs needed for process']","fill-in-iframe","9",0);
+          PlaywrightActionValue("//input[@placeholder='Average rework time if failed. In minutes']","fill-in-iframe","99",0);
+          PlaywrightActionValue("//input[@placeholder='Average error rate of automation']","fill-in-iframe","9",0);
+          PlaywrightActionValue("//input[@placeholder='Average hourly cost of FTE']","fill-in-iframe","99",0);
+          PlaywrightActionValue("//input[@placeholder='# of days worked per year']","fill-in-iframe","999",0);    
+          PlaywrightActionValue("//input[@placeholder='# of working hours per day']","fill-in-iframe","9",0);
+          PlaywrightActionValue("//input[@placeholder='# of FTEs for review/rework']","fill-in-iframe","99",0);
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Automation Goal')]","click-in-iframe","",0);
+          PlaywrightActionValue("//button[@type='button' and contains(@aria-label,'Remove')]","click-in-iframe","",0);  
+          Sleep(1000);
+          PlaywrightActionValue("//span[text()='Process Improvement']","click-in-iframe","",0); 
+          Sleep(1000); 
+          PlaywrightActionValue("//input[@placeholder='Estimated overhead maintenance %']","fill-in-iframe","99",0);
+          PlaywrightActionValue("//input[@placeholder='Estimated devlopment cost']","fill-in-iframe","99999",0); 
+          PlaywrightActionValue("//span[text()='Save']","click-in-iframe","",0);        
+          Sleep(2000);   
+          PlaywrightActionValue("button:has-text('Submitted')","click-in-iframe","",0);
+          Sleep(1000);  
+          PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","",0);
+          Sleep(1000);        
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  extensionModules:
+    enable: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

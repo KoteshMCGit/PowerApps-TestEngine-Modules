@@ -1,0 +1,35 @@
+testSuite:
+  testSuiteName: Automation Project Application
+  testSuiteDescription: Test suite to submit Automation Project 
+  persona: User1
+  appId: e2a726a0-d593-45ce-8e87-98f528847024
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Submit Automation Project
+      testCaseDescription: Search and take exisitng saved Automation project to submit
+      testSteps: |
+        = PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","Sample Project for Automation",0);
+        Sleep(3000);
+        PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","",0);
+        PlaywrightActionValue("//div[@role='radio']","click-in-iframe","",0);        
+        PlaywrightActionValue("button:has-text('Submit Project')","click-in-iframe","",0);
+        Sleep(3000);
+        PlaywrightActionValue("button:has-text('Submitted')","click-in-iframe","",0);        
+        PlaywrightActionValue("//div[@role='radio']","click-in-iframe","",0);
+        Sleep(3000);
+        
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  extensionModules:
+    enable: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

@@ -1,0 +1,67 @@
+testSuite:
+  testSuiteName: Automation Project Application
+  testSuiteDescription: Test suite to create new Automation Project 
+  persona: User1
+  appId: e2a726a0-d593-45ce-8e87-98f528847024
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Automation Project Application
+      testCaseDescription: Creating a new Automation Project with default values
+      testSteps: |
+        = PlaywrightActionValue("button:has-text('Add Project')","click-in-iframe","",0);          
+          PlaywrightActionValue("//input[@placeholder='Name of project']","fill-in-iframe","Sample Project for Automation",0);          
+          PlaywrightActionValue("//textarea[@placeholder='Explain Project description']","fill-in-iframe","Test description for Automation Project",0);
+          PlaywrightActionValue("//textarea[@placeholder='Enter Project Information URL']","fill-in-iframe","Https://www.microsoft.com",0);
+          PlaywrightActionValue("//textarea[@placeholder='Explain main challenges in process']","fill-in-iframe","Autmation Project for Cost saving and Quality Improvement",0);
+          PlaywrightActionValue("//span[text()='Select a Department']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Accounting']","click-in-iframe","",0);
+          PlaywrightActionValue("//div[@role='button' and contains(@title, 'Primary Improvement Driver')]","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Quality Improvement']","click-in-iframe","",0);
+          PlaywrightActionValue("//input[@placeholder='Total processing time in minutes']","fill-in-iframe","60",0);
+          PlaywrightActionValue("//span[text()='Select Cateogory']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Artificial Intelligence']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Select sub category based on category ']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Return']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Frequency of process']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Daily']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Total processing time in minutes']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='daily']","click-in-iframe","",0);          
+          PlaywrightActionValue("//input[@placeholder='The volume per process based on frequency']","fill-in-iframe","100",0);
+          PlaywrightActionValue("//input[@role='combobox' and @placeholder='Search Business Owner...']","fill-in-iframe","Nathanr@powercattools.onmicrosoft.com",450); 
+          PlaywrightActionValue("//input[@role='combobox' and @placeholder='Search Business Owner...']","press","Tab",0);               
+          Sleep(3000);          
+          PlaywrightActionValue("//span[text()='Next >']","click-in-iframe","",0);
+          PlaywrightActionValue("//input[@placeholder='Average # of automation steps ']","fill-in-iframe","4",0);
+          PlaywrightActionValue("//input[@placeholder='# of FTEs needed for process']","fill-in-iframe","2",0);
+          PlaywrightActionValue("//input[@placeholder='Average rework time if failed. In minutes']","fill-in-iframe","20",0);
+          PlaywrightActionValue("//input[@placeholder='Average error rate of automation']","fill-in-iframe","5",0);
+          PlaywrightActionValue("//input[@placeholder='Average hourly cost of FTE']","fill-in-iframe","50",0);
+          PlaywrightActionValue("//input[@placeholder='# of days worked per year']","fill-in-iframe","255",0);
+          PlaywrightActionValue("//input[@placeholder='# of working hours per day']","fill-in-iframe","8",0);
+          PlaywrightActionValue("//input[@placeholder='# of FTEs for review/rework']","fill-in-iframe","1",0);
+          PlaywrightActionValue("//span[text()='Select goal for this project']","click-in-iframe","",0);
+          PlaywrightActionValue("//span[text()='Cost Savings through Automation']","click-in-iframe","",0);
+          PlaywrightActionValue("//input[@placeholder='Estimated overhead maintenance %']","fill-in-iframe","10",0);
+          PlaywrightActionValue("//input[@placeholder='Estimated devlopment cost']","fill-in-iframe","5000",0);
+          PlaywrightActionValue("//span[text()='Save']","click-in-iframe","",0);
+          Sleep(10000);
+          PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","Sample Project for Automation",0);                   
+          Sleep(3000);
+          PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","",0);
+          PlaywrightActionValue("//div[@role='radio']","click-in-iframe","",0);
+          Sleep(3000);
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  extensionModules:
+    enable: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password

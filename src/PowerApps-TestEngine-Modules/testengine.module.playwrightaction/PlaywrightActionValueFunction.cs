@@ -8,6 +8,8 @@ using Microsoft.PowerApps.TestEngine.TestInfra;
 using Microsoft.Extensions.Logging;
 using Microsoft.PowerApps.TestEngine.Config;
 using Microsoft.PowerApps.TestEngine.System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace testengine.module
 {
@@ -23,7 +25,7 @@ namespace testengine.module
         private readonly ILogger _logger;
 
         public PlaywrightActionValueFunction(ITestInfraFunctions testInfraFunctions, ISingleTestInstanceState singleTestInstanceState, IFileSystem fileSystem, ITestState testState, ILogger logger)
-            : base("PlaywrightActionValue", FormulaType.Blank, FormulaType.String, FormulaType.String, FormulaType.String)
+            : base("PlaywrightActionValue", FormulaType.Blank, FormulaType.String, FormulaType.String, FormulaType.String,FormulaType.Number)
         {
             _testInfraFunctions = testInfraFunctions;
             _singleTestInstanceState = singleTestInstanceState;
@@ -33,10 +35,10 @@ namespace testengine.module
         }
 
 
-        public BooleanValue Execute(StringValue locator, StringValue action, StringValue value)
+        public BooleanValue Execute(StringValue locator, StringValue action, StringValue value,NumberValue typingspeed)
         {
             _logger.LogInformation("------------------------------\n\n" +
-                "Executing PlaywrightActionValue function.");
+                "Executing PlaywrightActionValue function. '"+ locator + "," + action +","+ value.Value +"'");
 
             if (string.IsNullOrEmpty(locator.Value))
             {
@@ -45,25 +47,54 @@ namespace testengine.module
             }
 
             IPage page = _testInfraFunctions.GetContext().Pages.First();
+            int delayfortyping = 0;
 
             switch (action.Value.ToLower())
             {
+                
                 case "click-in-iframe":
+                    LocatorClickOptions locClickOptions  = new LocatorClickOptions();                    
+                    locClickOptions.Delay=1000;
+                    locClickOptions.Force=true;
                     foreach (var frame in page.Frames)
                     {
-                        if (frame.Locator(locator.Value).IsVisibleAsync().Result)
+                        if (frame.Locator(locator.Value).First.IsVisibleAsync().Result)
                         {
-                            frame.Locator(locator.Value).ClickAsync(new LocatorClickOptions {  Delay = 200 }).Wait();
+                            frame.Locator(locator.Value).First.ClickAsync(locClickOptions).Wait();                            
                         }
+                        
                     }
                     break;
                 case "fill-in-iframe":
                     foreach (var frame in page.Frames)
                     {
                         if (frame.Locator(locator.Value).IsVisibleAsync().Result)
-                        { 
-                            frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions { Delay = 100 }).Wait();
+                        {
+                            frame.Locator(locator.Value).FillAsync("").Wait();
+                            //frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions { Delay = 100 }).Wait();
+                            if ((int)typingspeed.Value>0)
+                              {
+                                delayfortyping = (int)typingspeed.Value;
+                                frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions { Delay = delayfortyping }).Wait();
+                            }
+                            else
+                            {
+                                frame.Locator(locator.Value).TypeAsync(value.Value, new LocatorTypeOptions { Delay = 50 }).Wait();
+                            }
+                           
                         }
+                    }
+                    
+                    break;
+                case "press":
+                    
+                    foreach (var frame in page.Frames)
+                    {
+                        if (frame.Locator(locator.Value).IsVisibleAsync().Result)
+                        {
+                            frame.Locator(locator.Value).PressAsync(value.Value).Wait(500);
+                        }
+
                     }
                     break;
                 case "fill":
