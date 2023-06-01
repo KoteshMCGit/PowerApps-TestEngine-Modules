@@ -1,0 +1,33 @@
+testSuite:
+  testSuiteName: Reference Application
+  testSuiteDescription: testPlan template for written own test steps
+  persona: User1
+  appId: 86f0c1aa-e10c-4a6e-a226-974b46cb1f3a
+  onTestSuiteComplete: Screenshot("playwrightaction_onTestSuiteComplete.png");
+
+  testCases:
+    - testCaseName: Modify existing Automation Project 
+      testCaseDescription: Search and take exisitng saved Automation project to Modify
+      testSteps: |
+        = PlaywrightActionValue("//input[@placeholder='Search project name...']","fill-in-iframe","Kotesh New Project_5_2");
+        PlaywrightActionValue("button:has-text('Saved')","click-in-iframe","");
+        PlaywrightActionValue("//div[@role='radio']","click-in-iframe","");
+        PlaywrightActionValue("button:has-text('Submit Project')","click-in-iframe","");
+        PlaywrightActionValue("button:has-text('Submitted')","click-in-iframe","");
+        Pause();
+        PlaywrightActionValue("//div[@role='radio']","click-in-iframe","");
+        Pause();
+          
+testSettings:
+  headless: false
+  locale: "en-US"
+  recordVideo: true
+  enableExtensionModules: true
+  browserConfigurations:
+    - browser: Chromium
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password
